@@ -25,6 +25,7 @@ pipeline {
              }
      post {
               success {
+                  archiveArtifacts 'target/*.jar'
                   deploy adapters: [tomcat8(credentialsId: '3420f31c-aa74-4b6d-9433-92662608e8be', path: '', url: 'http://localhost:8080/')], contextPath: 'rps', war: '*.war'
               }
 
