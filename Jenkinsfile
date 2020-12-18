@@ -23,6 +23,12 @@ pipeline {
            git 'https://github.com/samadhanasam/Mypipelineproject.git'
            echo 'mvn -Dmaven.test.failure.ignore=true clean install'
              }
+     post {
+              success {
+                  archiveArtifacts '**/*.war'
+              }
+
+          }
             }
        }
        }
