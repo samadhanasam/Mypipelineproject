@@ -21,11 +21,10 @@ pipeline {
    stage('Deploy') {
         steps {
            git 'https://github.com/samadhanasam/Mypipelineproject.git'
-           echo 'mvn -Dmaven.test.failure.ignore=true clean install'
+           echo 'mvn clean install'
              }
      post {
               success {
-                  archiveArtifacts '**/assets/build/*.jar'
                   deploy adapters: [tomcat8(credentialsId: '3420f31c-aa74-4b6d-9433-92662608e8be', path: '', url: 'http://localhost:8080/')], contextPath: 'rps', war: '**/assets/build/*.war'
               }
 
