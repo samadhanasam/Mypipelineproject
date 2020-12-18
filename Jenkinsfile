@@ -8,17 +8,17 @@ pipeline {
   stages {
    stage('Compile') {
         steps {
-           echo "mvn clean compile"
+           sh "mvn clean compile"
              }
             }
    stage('Test') {
         steps {
-           echo "mvn clean test"
+           sh "mvn clean test"
              }
             }
    stage('Deploy') {
         steps {
-           echo "mvn clean install"
+           sh "mvn clean install"
              }
             }
        }
